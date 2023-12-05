@@ -1,0 +1,21 @@
+{
+  "name": "zig-cpp",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build-wasm": "zig build -Dtarget=wasm32-wasi",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wasmer/wasi": "^1.2.2",
+    "@wasmer/wasm-transformer": "^0.12.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.5",
+    "vite-plugin-node-stdlib-browser": "^0.2.1"
+  }
+}

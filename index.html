@@ -8,28 +8,7 @@
 </head>
 
 <body>
-    <script type="module">
-        (async () => {
-            const config = {
-                env: {
-                    memoryBase: 0,
-                    tableBase: 0,
-                    memory: new WebAssembly.Memory({
-                        initial: 256,
-                    }),
-                    table: new WebAssembly.Table({
-                        initial: 0,
-                        element: 'anyfunc',
-                    }),
-                }
-            }
-            const response = await fetch('./zig-out/bin/zig-cpp.wasm');
-            const bytes = await response.arrayBuffer();
-            const { instance } = await WebAssembly.instantiate(bytes, config);
-            const result = instance.exports.factorial(8);
-            console.log(result);
-        })();
-    </script>
+    <script type="module" src="./wasm-glue.js"></script>
 </body>
 
 </html>

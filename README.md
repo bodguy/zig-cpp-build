@@ -9,7 +9,7 @@ zig build run
 target wasm32-wasi
 
 ``` bash
-zig build -Drelease-small -Dtarget=wasm32-wasi
+zig build -Dtarget=wasm32-wasi
 ```
 
 execute wasm binary using wasmtime
@@ -18,10 +18,10 @@ execute wasm binary using wasmtime
 wasmtime zig-out/bin/zig-cpp.wasm
 ```
 
-test with python http server
+test in browser
 
 ``` bash
-python -m http.server 8080
+pnpm dev
 ```
 
 Awesome!
