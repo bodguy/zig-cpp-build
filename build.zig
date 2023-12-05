@@ -6,7 +6,7 @@ pub fn build(b: *std.Build) void {
     const lib = b.addStaticLibrary(.{ .name = "cdep", .target = target, .optimize = optimize, .link_libc = true });
     lib.addIncludePath(.{ .path = "include/" });
     lib.linkLibCpp();
-    lib.addCSourceFiles(&.{"src/cdep/dep.cpp"}, &.{ "-pedantic", "-Wall", "-W", "-Wno-missing-field-initializers", "--std=c++20" });
+    lib.addCSourceFiles(&.{"src/cdep/dep.cpp"}, &.{ "-pedantic", "-Wall", "-W", "-Wno-missing-field-initializers", "-fno-exceptions", "--std=c++20" });
     b.installArtifact(lib);
 
     const exe = b.addExecutable(.{
@@ -17,7 +17,7 @@ pub fn build(b: *std.Build) void {
     exe.addIncludePath(.{ .path = "include" });
     exe.linkLibCpp();
     exe.linkLibrary(lib);
-    exe.addCSourceFiles(&.{"src/main.cpp"}, &.{ "-pedantic", "-Wall", "-W", "-Wno-missing-field-initializers", "--std=c++20" });
+    exe.addCSourceFiles(&.{"src/main.cpp"}, &.{ "-pedantic", "-Wall", "-W", "-Wno-missing-field-initializers", "-fno-exceptions", "--std=c++20" });
     b.installArtifact(exe);
 
     const run_cmd = b.addRunArtifact(exe);

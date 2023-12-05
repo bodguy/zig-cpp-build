@@ -1,5 +1,12 @@
 ## cpp build using zig build system
 
+cmake + zig + vite + wasmer
+
+- cmake: cpp build system
+- zig: crossplatform wasi compiler
+- vite: javascript package bundler
+- wasmer: wasi runtime in browser
+
 A simple zig build and run
 
 ``` bash
